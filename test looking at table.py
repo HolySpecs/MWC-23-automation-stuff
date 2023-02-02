@@ -118,3 +118,5 @@ def main():
     #go through all the categories
     for item in categoryNameList:
         atendeeInCategory(item)
+
+main()
