@@ -1,0 +1,17 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+browser = webdriver.Chrome("chromedriver_win32\chromedriver.exe")
+browser.get("https://www.mwcbarcelona.com/exhibitors")
+time.sleep(1)
+cookiesButton = browser.find_element(By.ID, "onetrust-accept-btn-handler")
+cookiesButton.click()
+
+inputElement = browser.find_element(By.TAG_NAME, "INPUT")
+inputElement.send_keys("hacker")
+time.sleep(0.25)
+
+checkEmpty = browser.find_element(By.TAG_NAME, 'td')
+getSource = browser.page_source
+print(not("No Result" in getSource))
